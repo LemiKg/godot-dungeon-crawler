@@ -1,0 +1,151 @@
+[gd_scene load_steps=10 format=3 uid="uid://br6k5ly0d7nn7"]
+
+[ext_resource type="PackedScene" uid="uid://cddcm43bv52n4" path="res://Assets/Models/Tree.glb" id="1_w77jt"]
+[ext_resource type="PackedScene" uid="uid://daugufap3rsiu" path="res://Scenes/player.tscn" id="2_3anf8"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_3anf8"]
+sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
+ground_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
+
+[sub_resource type="Sky" id="Sky_fhqol"]
+sky_material = SubResource("ProceduralSkyMaterial_3anf8")
+
+[sub_resource type="Environment" id="Environment_iotdp"]
+background_mode = 2
+sky = SubResource("Sky_fhqol")
+tonemap_mode = 2
+glow_enabled = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fhqol"]
+albedo_color = Color(0.161058, 0.246362, 0.299851, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_a4eo7"]
+albedo_color = Color(0.349966, 0.256375, 0.0755411, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3anf8"]
+albedo_color = Color(0.34902, 0.254902, 0.0745098, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_w77jt"]
+albedo_color = Color(0.234511, 0.323764, 0.0585109, 1)
+
+[node name="Node3D" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_iotdp")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 0, 0)
+shadow_enabled = true
+
+[node name="Node3D" type="Node3D" parent="."]
+
+[node name="CSGBox3D" type="CSGBox3D" parent="Node3D"]
+transform = Transform3D(1.51999, 0, 0, 0, 1.51999, 0, 0, 0, 1.51999, -3.53312, 2.08155, -0.0052914)
+use_collision = true
+size = Vector3(1, 0.171997, 1.86328)
+material = SubResource("StandardMaterial3D_fhqol")
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="Node3D"]
+transform = Transform3D(1.51999, 0, 0, 0, 1.51999, 0, 0, 0, 1.51999, -5.76128, 2.08155, -0.0052914)
+use_collision = true
+size = Vector3(1, 0.171997, 1.86328)
+material = SubResource("StandardMaterial3D_fhqol")
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="Node3D"]
+transform = Transform3D(1.51999, 0, 0, 0, 1.51999, 0, 0, 0, 1.51999, -7.90755, 2.08155, -0.0052914)
+use_collision = true
+size = Vector3(1, 0.171997, 1.86328)
+material = SubResource("StandardMaterial3D_fhqol")
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="Node3D"]
+transform = Transform3D(1.51999, 0, 0, 0, 1.51999, 0, 0, 0, 1.51999, -10.0439, 2.08155, -0.0052914)
+use_collision = true
+size = Vector3(1, 0.171997, 1.86328)
+material = SubResource("StandardMaterial3D_fhqol")
+
+[node name="CSGBox3D5" type="CSGBox3D" parent="Node3D"]
+transform = Transform3D(1.51999, 0, 0, 0, 1.51999, 0, 0, 0, 1.51999, -12.2721, 2.08155, -0.0052914)
+use_collision = true
+size = Vector3(1, 0.171997, 1.86328)
+material = SubResource("StandardMaterial3D_fhqol")
+
+[node name="CSGBox3D6" type="CSGBox3D" parent="Node3D"]
+transform = Transform3D(1.51999, 0, 0, 0, 1.51999, 0, 0, 0, 1.51999, -14.4183, 2.08155, -0.0052914)
+use_collision = true
+size = Vector3(1, 0.171997, 1.86328)
+material = SubResource("StandardMaterial3D_fhqol")
+
+[node name="Platforms" type="Node3D" parent="."]
+
+[node name="Platform 1" type="CSGBox3D" parent="Platforms"]
+transform = Transform3D(4.08306, 0, 0, 0, 4.08306, 0, 0, 0, 4.08306, 4.08306, 0, 0)
+use_collision = true
+size = Vector3(3, 1, 1)
+material = SubResource("StandardMaterial3D_a4eo7")
+
+[node name="Platform 2" type="CSGBox3D" parent="Platforms"]
+transform = Transform3D(4.66583, 0, 0, 0, 4.66583, 0, 0, 0, 4.66583, -18.2716, 0, 0)
+use_collision = true
+material = SubResource("StandardMaterial3D_a4eo7")
+
+[node name="Platform 4" type="CSGBox3D" parent="Platforms"]
+transform = Transform3D(4.66583, 0, 0, 0, 4.35335, -1.67877, 0, 1.67877, 4.35335, -18.2716, 3.75571, -6.68873)
+use_collision = true
+size = Vector3(1, 0.2052, 2.47168)
+material = SubResource("StandardMaterial3D_3anf8")
+
+[node name="Platform 3" type="CSGBox3D" parent="Platforms"]
+transform = Transform3D(7.69038, 0, 0, 0, 4.66583, 0, 0, 0, 4.89288, -6.60706, 4.1837, -41.1332)
+use_collision = true
+size = Vector3(6, 0.896118, 12.1055)
+material = SubResource("StandardMaterial3D_w77jt")
+
+[node name="Props" type="Node3D" parent="."]
+
+[node name="Tree" parent="Props" instance=ExtResource("1_w77jt")]
+transform = Transform3D(1, 0, 0, 0, 0.983398, -0.181463, 0, 0.181463, 0.983398, 3.61112, 6.12709, -23.4975)
+
+[node name="Tree2" parent="Props" instance=ExtResource("1_w77jt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.1561, 4.54092, -36.6106)
+
+[node name="Tree14" parent="Props" instance=ExtResource("1_w77jt")]
+transform = Transform3D(0.896541, -0.442962, 0, 0.442962, 0.896541, 0, 0, 0, 1, -7.92106, 6.08081, -45.3918)
+
+[node name="Tree6" parent="Props" instance=ExtResource("1_w77jt")]
+transform = Transform3D(1, 0, 0, 0, 0.94702, 0.321175, 0, -0.321175, 0.94702, -24.7605, 1.98678, -66.3655)
+
+[node name="Tree7" parent="Props" instance=ExtResource("1_w77jt")]
+transform = Transform3D(1, 0, 0, 0, 0.966457, -0.256829, 0, 0.256829, 0.966457, -20.409, 3.17245, -52.8455)
+
+[node name="Tree10" parent="Props" instance=ExtResource("1_w77jt")]
+transform = Transform3D(-0.999014, 0, -0.0444041, 0, 1, 0, 0.0444041, 0, -0.999014, -14.5225, 6.02698, -65.2699)
+
+[node name="Tree11" parent="Props" instance=ExtResource("1_w77jt")]
+transform = Transform3D(-0.999014, 0, -0.0444041, 0, 1, 0, 0.0444041, 0, -0.999014, 5.80753, 5.39801, -53.0476)
+
+[node name="Tree15" parent="Props" instance=ExtResource("1_w77jt")]
+transform = Transform3D(-0.993657, -0.103316, -0.0444041, -0.103418, 0.994638, 0, 0.044166, 0.00459216, -0.999014, 5.35077, 3.58504, -63.3238)
+
+[node name="Tree12" parent="Props" instance=ExtResource("1_w77jt")]
+transform = Transform3D(-0.999014, 0, -0.0444041, 0, 1, 0, 0.0444041, 0, -0.999014, 13.9597, 2.2406, -23.6256)
+
+[node name="Tree13" parent="Props" instance=ExtResource("1_w77jt")]
+transform = Transform3D(-0.999014, 0, -0.0444041, 0, 1, 0, 0.0444041, 0, -0.999014, 10.7771, 3.42628, -37.0175)
+
+[node name="Tree8" parent="Props" instance=ExtResource("1_w77jt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.35043, 6.01044, -46.1093)
+
+[node name="Tree9" parent="Props" instance=ExtResource("1_w77jt")]
+transform = Transform3D(-0.439381, 0.0726769, -0.895356, -0.568815, 0.748932, 0.339928, 0.695266, 0.65865, -0.287726, -7.61333, 5.0836, -46.5612)
+
+[node name="Tree3" parent="Props" instance=ExtResource("1_w77jt")]
+transform = Transform3D(0.958128, -0.286341, 0, 0.286341, 0.958128, 0, 0, 0, 1, -18.4227, 4.46604, -17.8486)
+
+[node name="Tree4" parent="Props" instance=ExtResource("1_w77jt")]
+transform = Transform3D(1, 0, 0, 0, 0.952932, 0.303185, 0, -0.303185, 0.952932, -3.30781, 5.34935, -32.8793)
+
+[node name="Tree5" parent="Props" instance=ExtResource("1_w77jt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.62042, 3.55112, -17.9848)
+
+[node name="Player" parent="." instance=ExtResource("2_3anf8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.67952, 7.27426, -31.3478)
