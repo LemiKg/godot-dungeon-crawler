@@ -4,7 +4,7 @@ class_name Player extends CharacterBody3D
 @export var jump_velocity = 4.5
 
 var input_direction = Vector2.ZERO
-
+@onready var state_machine = $StateMachine
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
@@ -16,7 +16,7 @@ func _physics_process(delta: float) -> void:
 	input_direction = Input.get_vector("move_left", "move_right", "move_forward", "move_backwards")
 
 
-func move(speed: float, acceleration: float, delta: float) -> void:
+func move() -> void:
 	var direction := (transform.basis * Vector3(input_direction.x, 0, input_direction.y)).normalized()
 	if direction:
 		velocity.x = direction.x * speed
@@ -24,3 +24,5 @@ func move(speed: float, acceleration: float, delta: float) -> void:
 	else:
 		velocity.x = move_toward(velocity.x, 0, speed)
 		velocity.z = move_toward(velocity.z, 0, speed)
+		
+	move_and_slide()

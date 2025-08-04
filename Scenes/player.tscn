@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://bjcboeusp4xie" path="res://Scripts/Player/Player.gd" id="1_6t5aa"]
 [ext_resource type="Script" uid="uid://bws2r562asbap" path="res://Scripts/Player/StateMachine.gd" id="1_cvnsp"]
 [ext_resource type="Script" uid="uid://bsvxqk8mta1q8" path="res://Scripts/Player/Idle.gd" id="2_6t5aa"]
-[ext_resource type="Script" uid="uid://cfvgs4qh3ic8t" path="res://Scenes/Walk.gd" id="4_vgqql"]
+[ext_resource type="Script" uid="uid://cfvgs4qh3ic8t" path="res://Scripts/Player/Walk.gd" id="4_vgqql"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_f60y1"]
 
@@ -22,8 +22,9 @@ shape = SubResource("CapsuleShape3D_f60y1")
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 mesh = SubResource("CapsuleMesh_v0iea")
 
-[node name="StateMachine" type="Node" parent="."]
+[node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_state")]
 script = ExtResource("1_cvnsp")
+initial_state = NodePath("Idle")
 metadata/_custom_type_script = "uid://bws2r562asbap"
 
 [node name="Idle" type="Node" parent="StateMachine"]
