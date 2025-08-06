@@ -5,19 +5,20 @@ class_name Player extends CharacterBody3D
 
 var input_direction = Vector2.ZERO
 @onready var state_machine = $StateMachine
+@onready var player_skin = $PlayerSkin
+@onready var camera_controller = $CameraController
 
 func _physics_process(delta: float) -> void:
-	# Add the gravity.
 	if not is_on_floor():
 		velocity += get_gravity() * delta
 
-	# Get the input direction and handle the movement/deceleration.
-	# As good practice, you should replace UI actions with custom gameplay actions.
 	input_direction = Input.get_vector("move_left", "move_right", "move_forward", "move_backwards")
-
-
+	
 func move() -> void:
-	var direction := (transform.basis * Vector3(input_direction.x, 0, input_direction.y)).normalized()
+	var camera_yaw = camera_controller.yaw
+	var camera_basis = Basis(Vector3.UP, camera_yaw)
+	
+	var direction := (camera_basis * Vector3(input_direction.x, 0, input_direction.y)).normalized()
 	if direction:
 		velocity.x = direction.x * speed
 		velocity.z = direction.z * speed

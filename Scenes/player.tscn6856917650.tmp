@@ -37,6 +37,9 @@ metadata/_custom_type_script = "uid://drfa5hligycu2"
 script = ExtResource("5_fkybt")
 metadata/_custom_type_script = "uid://bi3s7kjksmbi4"
 
+[node name="Camera3D" type="Camera3D" parent="CameraController"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25074, 0)
+
 [node name="PlayerSkin" type="Node3D" parent="."]
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="PlayerSkin"]
